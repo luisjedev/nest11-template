@@ -1,8 +1,8 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from '@/app.module';
+import { config } from '@/common/config/swagger.config';
 import { ConsoleLogger, Logger } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
 import { SwaggerModule } from '@nestjs/swagger';
-import { config } from './common/config/swagger.config';
 import { patchNestJsSwagger } from 'nestjs-zod';
 
 export const GLOBAL_PREFIX = 'api/';

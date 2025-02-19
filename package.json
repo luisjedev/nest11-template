@@ -1,7 +1,7 @@
 {
   "name": "nest11-template",
   "version": "0.0.1",
-  "description": "",
+  "description": "NestJS 11 template ready for common uses such as Authentication with JWT, ORM, optimized validations with Zod, and more.",
   "author": "Luisjedev",
   "private": true,
   "license": "UNLICENSED",

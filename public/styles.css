@@ -1,0 +1,90 @@
+:root {
+  --primary-color: #e0234e;
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+#features {
+  margin-bottom: 30px;
+}
+
+#features h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+#features ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#features li {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#get-started {
+  margin-top: 30px;
+}
+
+#api-docs {
+  margin-top: 30px;
+}
+
+.api-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.api-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { SayHelloWorldDto } from './common/dto/hello-world.dto';
+import { SayHelloWorldDto } from '@/common/dto/hello-world.dto';
 
 @Injectable()
 export class AppService {
