@@ -1,0 +1,10 @@
+services:
+  nestjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nestjs-app
+    container_name: nestjs-app
+    restart: always
+    ports:
+      - '${PORT}:${PORT}'

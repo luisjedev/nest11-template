@@ -29,20 +29,28 @@
 ## Project setup
 
 ```bash
-$ pnpm install
+$ npm install
 ```
 
 ## Compile and run the project
 
 ```bash
 # development
-$ pnpm run start
+$ npm run start
 
 # watch mode
-$ pnpm run start:dev
+$ npm run start:dev
 
 # production mode
-$ pnpm run start:prod
+$ npm run start:prod
+```
+
+You can now visit your application at localhost:3001 and explore the API documentation at localhost:3001/api/docs.
+
+## Production build with Docker
+
+```bash
+$ docker compose up -d
 ```
 
 # NestJS Starter Template
@@ -52,6 +60,7 @@ This repository contains a comprehensive NestJS template designed to streamline 
 - **Authentication with JWT:** Secure your application with JSON Web Tokens for robust user authentication.
 - **ORM Integration:** Efficiently manage your database with an integrated Object-Relational Mapping tool.
 - **Optimized Validations with Zod:** Ensure data integrity and reduce errors with optimized validations using Zod.
+- **Docker Support:** Containerize your application for easy deployment and scaling.
 - **Additional Features:** The template includes various other enhancements to accelerate development and improve code quality.
 
 Whether you're building a new application or enhancing an existing one, this template provides a solid foundation to get you started quickly.
