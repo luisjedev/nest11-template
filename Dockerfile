@@ -1,23 +1,42 @@
-# Use the official Node.js image as the base image
-FROM node:20
+# Install dependencies only when needed
+FROM node:20 AS deps
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install --frozen-lockfile
 
-# Set the working directory inside the container
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install the application dependencies
-RUN npm install
-
-# Copy the rest of the application files
+# Build the app with cache dependencies
+FROM node:20 AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Build the NestJS application
 RUN npm run build
 
-# Expose the application port
-EXPOSE 3001
 
-# Command to run the application
-CMD ["node", "dist/main"]
+# Production image, copy all the files and run next
+FROM node:20 AS runner
+
+# Set working directory
+WORKDIR /usr/src/app
+
+COPY package.json package-lock.json ./
+
+RUN npm install --prod
+
+COPY --from=builder /app/dist ./dist
+
+# # Copy the directory and its contents
+# RUN mkdir -p ./pokedex
+
+# COPY --from=builder ./app/dist/ ./app
+# COPY ./.env ./app/.env
+
+# # Give permission to execute the application
+# RUN adduser --disabled-password pokeuser
+# RUN chown -R pokeuser:pokeuser ./pokedex
+# USER pokeuser
+
+# EXPOSE 3000
+
+CMD [ "node","dist/main" ]

@@ -34,6 +34,16 @@ $ npm install
 
 ## Compile and run the project
 
+Create .env configuration file
+
+### Create & deploy postgres DB
+
+```bash
+$ docker compose up -d
+```
+
+### Run Nest app
+
 ```bash
 # development
 $ npm run start
@@ -49,9 +59,9 @@ You can now visit your application at localhost:3001 and explore the API documen
 
 ## Production build with Docker
 
-```bash
-$ docker compose up -d
-```
+### Create the .env.prod enviroment config
+
+Run prod build & dockerfile
 
 # NestJS Starter Template
 
